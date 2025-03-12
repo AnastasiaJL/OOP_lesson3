@@ -7,6 +7,7 @@ class Student:
         self.finished_courses = []
         self.courses_in_progress = []
         self.grades = {}
+        self.average_ST = []
  
     def add_courses(self, course_name):
         self.finished_courses.append(course_name)
@@ -25,19 +26,29 @@ class Student:
         else:
             return 'Ошибка'
         
-     
-        
+    
+    def average_grade_ST(self):
+    # Ищем среднюю оценку
+        for x, y in self.grades.items():
+            result_ST = sum(y)/len(y)
+        self.average_ST.append(result_ST)
+
+
+
+
     def __str__ (self):
     # Перезагружаем метод __str__
         return (f"""Имя: {self.name}
 Фамилия: {self.surname}
-Средняя оценка за домашние задания: {sum_grades_student}
+Средняя оценка за домашние задания: {self.average_ST}
 Курсы в процессе изучения: {', '.join(self.courses_in_progress)}
 Завершенные курсы: {' '.join(self.finished_courses)}""")
     
-         
+
  
- 
+
+
+
 class Mentor:
     #описание Преподавателя
     def __init__(self, name, surname):
@@ -109,43 +120,43 @@ cool_mentor.rate_hw(some_student, 'Python', 2)
 cool_mentor.rate_hw(some_student, 'Python', 10)
 cool_mentor.rate_hw(some_student, 'Python', 9)
 
-#считаем среднюю оценку студента
-for i, y in some_student.grades.items():
-    sum_grades_student = sum(y)/len(y)
+# #считаем среднюю оценку студента
+# for i, y in some_student.grades.items():
+#     sum_grades_student = sum(y)/len(y)
 
 print (some_student)
  
 
-#Задали лектора №1
-some_lecturer = Lecturer('Sasha', 'Smith')
-some_lecturer.courses_attached += ['Python']
-some_lecturer.courses_attached += ['Excel']
+# #Задали лектора №1
+# some_lecturer = Lecturer('Sasha', 'Smith')
+# some_lecturer.courses_attached += ['Python']
+# some_lecturer.courses_attached += ['Excel']
 
-#Проставили лектору №1 оценку
-some_student.lecturer_grade(some_lecturer, 'Python', 9)
-some_student.lecturer_grade(some_lecturer, 'Python', 6)
-some_student.lecturer_grade(some_lecturer, 'Python', 3)
+# #Проставили лектору №1 оценку
+# some_student.lecturer_grade(some_lecturer, 'Python', 9)
+# some_student.lecturer_grade(some_lecturer, 'Python', 6)
+# some_student.lecturer_grade(some_lecturer, 'Python', 3)
 
-#считаем среднюю оценку лектора №1
-for u, r in some_lecturer.grades.items():
-    sum_grades_lecturer = sum(r)/len(r)
+# #считаем среднюю оценку лектора №1
+# for u, r in some_lecturer.grades.items():
+#     sum_grades_lecturer = sum(r)/len(r)
 
-# print (some_lecturer)
+# # print (some_lecturer)
 
-#Задали лектора №2
-some_lecturer2 = Lecturer('Masha', 'Lotus')
-some_lecturer2.courses_attached += ['Python']
-some_lecturer2.courses_attached += ['Java']
+# #Задали лектора №2
+# some_lecturer2 = Lecturer('Masha', 'Lotus')
+# some_lecturer2.courses_attached += ['Python']
+# some_lecturer2.courses_attached += ['Java']
 
-#Проставили лектору №2 оценку
-some_student.lecturer_grade(some_lecturer2, 'Python', 2)
-some_student.lecturer_grade(some_lecturer2, 'Python', 2)
-some_student.lecturer_grade(some_lecturer2, 'Python', 8)
+# #Проставили лектору №2 оценку
+# some_student.lecturer_grade(some_lecturer2, 'Python', 2)
+# some_student.lecturer_grade(some_lecturer2, 'Python', 2)
+# some_student.lecturer_grade(some_lecturer2, 'Python', 8)
 
-#считаем среднюю оценку
-for u, r in some_lecturer2.grades.items():
-    sum_grades_lecturer = sum(r)/len(r)
+# #считаем среднюю оценку
+# for u, r in some_lecturer2.grades.items():
+#     sum_grades_lecturer = sum(r)/len(r)
 
-# print (some_lecturer2)
-print (some_lecturer > some_lecturer2)
+# # print (some_lecturer2)
+# print (some_lecturer > some_lecturer2)
 
